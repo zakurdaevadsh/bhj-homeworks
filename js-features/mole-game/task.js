@@ -1,26 +1,26 @@
 const holes = document.querySelectorAll(".hole")
 const dead = document.querySelector("#dead")
-let d = 0;
+let deadCounter = 0;
 const lost = document.querySelector("#lost")
-let l = 0;
+let lostCounter = 0;
 const handler = (e) => {
     const hole = e.target
     if(hole.classList.contains("hole_has-mole")){
-       d++ 
-       if(d === 10){
+        deadCounter++ 
+       if(deadCounter === 10){
           alert("Вы победили!")
-          d = 0 
-          l = 0
+          deadCounter = 0 
+          lostCounter = 0
         }
-        dead.innerText = d
+        dead.innerText = deadCounter
     } else {
-        l++
-        if(l === 5){
+        lostCounter++
+        if(lostCounter === 5){
             alert("Вы проиграли.")
-            d = 0 
-            l = 0
+            deadCounter = 0 
+            lostCounter = 0
         }
-        lost.innerText = l
+        lost.innerText = lostCounter
     }
 }
 for(const hole of [...holes]){
