@@ -1,5 +1,12 @@
-document.querySelector(".menu_main").onclick = function (event) {
-  console.log(event);
-  if(event.target.nodeName !=="li") return;
-  event.target.nextElementsSibling.classList.toggle("menu_active");
+const menuLinks = [...document.querySelectorAll(".menu__link")]
+for (const menuLink of menuLinks){
+  menuLink.addEventListener("click", handler)
+}
+
+function handler(e){
+  if(e.target.nextElementSibling === null){
+    return
+  }
+  e.preventDefault()
+  e.target.nextElementSibling.classList.toggle("menu_active")
 }
