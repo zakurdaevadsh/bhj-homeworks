@@ -6,8 +6,10 @@ function initTabs(container) {
     for(const tab of tabs){
         tab.addEventListener("click", (e) => {
             tabContents[currentIndex].classList.remove("tab__content_active")
+            tabs[currentIndex].classList.remove("tab_active")
             currentIndex = tabs.indexOf(e.target)
             tabContents[currentIndex].classList.add("tab__content_active")
+            tabs[currentIndex].classList.add("tab_active")   
         })
     }
 }

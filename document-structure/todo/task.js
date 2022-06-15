@@ -2,7 +2,9 @@ const submit = document.querySelector("#tasks__add")
 submit.addEventListener("click", (e) => {
     const input = document.querySelector("#task__input")
     e.preventDefault()
-    if (input.value === "") {
+    const value = input.value.trim()
+    input.value = ""
+    if (value === "") {
         return
     }
     const task = document.createElement("div")
@@ -14,7 +16,7 @@ submit.addEventListener("click", (e) => {
     taskRemove.innerHTML = "&times;"
     task.appendChild(taskTitle)
     task.appendChild(taskRemove)
-    taskTitle.innerText = input.value
+    taskTitle.innerText = value
     taskRemove.addEventListener("click", (e) => {
         e.preventDefault()
         task.remove()
